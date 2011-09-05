@@ -1,0 +1,15 @@
+automaat
+
+This is a collection of scripts to help automate Maatkit's
+excellent MySQL replication checksumming tools.
+
+master/run-maatkit.sh -- Run this on a master to create checksums
+master/check-maatkit.sh -- This script fails when Maatkit hasn't been run in
+                           the last two days.
+slave/run-maatkit.pl -- Run this on a slave to find syncronization problems
+slave/check-maatkit.sh -- This script files when Maatkit hasn't been run in
+                          the last two hours, or if there syncronization problems.
+
+You'll need to make sure the root user has SELECT and REPLICATION CLIENT privileges
+on the master from both localhost and the slave. Store this information in 
+/root/.my.cnf. To make life simpler, make the root password the same.
